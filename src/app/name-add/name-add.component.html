@@ -1,2 +1,3 @@
 <input type="text" #Name (keydown.enter)="addname(Name.value); Name.value=''" placeholder="Enter Name"><br><br>
 <button (click)="addname(Name.value); Name.value=''">Add</button>
+<p *ngIf="errormessage" style="color: red;">{{errormessage}}</p>
