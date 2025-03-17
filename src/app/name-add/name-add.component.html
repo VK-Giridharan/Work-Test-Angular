@@ -1,3 +1,11 @@
-<input type="text" #Name (keydown.enter)="addname(Name.value); Name.value=''" placeholder="Enter Name"><br><br>
-<button (click)="addname(Name.value); Name.value=''">Add</button>
-<p *ngIf="errormessage" style="color: red;">{{errormessage}}</p>
+<form [formGroup]="nameForm" (ngSubmit)="addName()">
+    <input type="text" formControlName="name" placeholder="Enter name" /><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit">Add</button>
+  
+    <!-- Validation Error Messages -->
+    <p *ngIf="name?.invalid && name?.touched" style="color: red;">
+      <span *ngIf="name?.errors?.['required']">Name is required!</span>
+      <span *ngIf="name?.errors?.['minlength']">Name must be at least 3 characters long!</span>
+    </p>
+  </form>
+  
