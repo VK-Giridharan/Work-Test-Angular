@@ -13,5 +13,4 @@ export class NameCountComponent {
  ngOnInit(){
    this.names=this.nameservice.get();
  }
-
 }
